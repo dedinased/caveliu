@@ -2,108 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>опа тцк</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            background: rgb(0, 0, 0);
-            overflow: hidden;
-        }
-        
-        p {
-            position: absolute;
-            top: 30%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 600px;
-            max-width: 90%;
-            margin: 0;
-            font-family: "Helvetica Neue", "Arial", sans-serif;
-            font-style: normal;
-            font-weight: 100;
-            font-size: 2rem;
-            letter-spacing: 1px;
-            text-align: center;
-            color: white;
-            z-index: 10;
-        }
-        
-textarea {
-  position: absolute;
-  top: 35%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  resize: none;
-}
-        
-        button {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 100px;
-            height: 40px;
-            z-index: 10;
-            cursor: pointer;
-        }
-        
-        .fullscreen-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1000;
-            display: none;
-            background: white;
-        }
-        
-        .fullscreen-page iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-        
-        @media (max-width: 768px) {
-            p {
-                font-size: 1.5rem;
-                top: 25%;
-            }
-            textarea {
-                top: 35%;
-                width: 250px;
-                height: 80px;
-                font-size: 14px;
-            }
-            button {
-                top: 42%;
-                width: 80px;
-                height: 35px;
-            }
-        }
-    </style>
 </head>
 <body>
     <p>Введи пароль</p>
+
     <textarea id="passwordInput"></textarea>
+
     <button id="checkButton">Проверить</button>
-    
-    <div id="fullscreenPage" class="fullscreen-page">
-        <iframe id="pageFrame" src=""></iframe>
-    </div>
 
     <script>
         const v = document.getElementById('passwordInput');
         const b = document.getElementById('checkButton');
-        const fullscreenPage = document.getElementById('fullscreenPage');
-        const pageFrame = document.getElementById('pageFrame');
         
         const z = "0KHQsNCy0LXQu9C40Y/QvdC10YHRg9GJ0LXRgdGC0LLRg9C10YI=";
         const p = "aHR0cHM6Ly9kcml2ZS5nb29nbGUuY29tL2RyaXZlL2ZvbGRlcnMvMTcydllMVkVxM2xtVGJ4ZERNb2dza3Jhb1BsTnY1WmtOP3VzcD1kcml2ZV9saW5r";
@@ -113,8 +24,7 @@ textarea {
             const x = decodeURIComponent(escape(atob(z)));
             
             if (c === x) {
-                pageFrame.src = atob(p);
-                fullscreenPage.style.display = "block";
+                window.location.href = atob(p);
             } else {
                 alert("ОХ БРАТАН ВОТ ЭТО ТЫ НЕ ПРАВИЛЬНО СДЕЛАЛ");
             }
